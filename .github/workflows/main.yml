@@ -2,22 +2,22 @@ name: Github Pages CI/CD
 on:
   push:
     branches:
-      - master
+    - main
     paths:
-      - "src/**"
-      - "book.toml"
+    - "src/**"
+    - "book.toml"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Build documents
-        uses: ./.github/actions/build
-      - name: Deploy documents
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          deploy_key: ${{ secrets.PAGES_ACTIONS_DEPLOY_KEY }}
-          external_repository: aztecher/aztecher.github.io
-          PUBLISH_BRANCH: master
-          PUBLISH_DIR: ./book
+    - uses: actions/checkout@v2
+    - name: Build documents
+      uses: ./.github/actions/build
+    - name: Deploy documents
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        external_repository: aztecher/aztecher.github.io
+        PUBLISH_BRANCH: main
+        PUBLISH_DIR: ./book
