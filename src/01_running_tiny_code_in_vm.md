@@ -268,7 +268,7 @@ GuestMemoryMmap(struct & implement GuestMemory trait) : Represents the entire ph
 [Since `GuestRegionMmap` implements the `GuestMemoryRegion` trait](https://github.com/rust-vmm/vm-memory/blob/f6ef1b619b126324830c87a3554b7082a0490ae0/src/mmap.rs#L436), there are implementations of functions such as `start_addr()` and `len()`, which were used in the above interation.
 The following figure briefly summarizes the relationship between these structures
 
-![vm-memory_overview](./vm-memory_overview.svg)
+<img src="./01_figs/vm-memory_overview.svg" width="100%">
 
 As you can see, what is being done is essentially the same.  
 
