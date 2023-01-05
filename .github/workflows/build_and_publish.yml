@@ -1,4 +1,4 @@
-name: Github Pages CI/CD
+name: Build and publish documents
 on:
   push:
     branches:
@@ -12,8 +12,12 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
-    - name: Build documents
-      uses: ./.github/actions/build
+    - name: Setup mdBook
+      uses: peaceiris/actions-mdbook@v1
+      with:
+        mdbook-version: '0.4.10'
+    - name: Build mdBook
+      run: mdbook build
     - name: Deploy documents
       uses: peaceiris/actions-gh-pages@v3
       with:
