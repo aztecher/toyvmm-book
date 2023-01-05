@@ -1,15 +1,19 @@
-name: Build documents
+name: Build documents from workflow dispatch
 on:
-  pull_request:
-    paths:
-    - "src/**"
-    - "book.toml"
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Checkout ref'
+        required: true
+        default: 'main'
 
 jobs:
   build:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.inputs.ref }}
     - name: Setup mdBook
       uses: peaceiris/actions-mdbook@v1
       with:
