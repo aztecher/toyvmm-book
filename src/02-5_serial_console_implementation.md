@@ -209,7 +209,7 @@ ToyVMMのIoBusでも同様のアドレスベース、レンジ情報でSerial De
 これはLinuxにおける[eventfd](https://man7.org/linux/man-pages/man2/eventfd.2.html)のWrapperになっているものである。
 eventfdの詳細は[man](https://man7.org/linux/man-pages/man2/eventfd.2.html)を確認してほしいが、簡単にいうとプロセス間やプロセスとカーネルの間などでのイベントの通知を実現することができる仕組みである。
 
-次にirqfdである。irqfdはeventfdをベースとしたVMに対して割り込みを入れることのできるfile descriptorである。
+次にirqfdである。irqfdはeventfdをベースとしたVMに対して割り込みを入れることのできる仕組みである。
 イメージとしてはeventfdの一端をKVMが保持し、もう片方からの通知をGuest VMへの割り込みとして解釈するというものである。
 このirqfdによる割り込みは、Guest VMの外の世界からGuest VMへの割り込み、つまり通常のシステムで言うところの周辺デバイスからの割り込みをエミュレートするものである。逆方向の割り込みは`ioeventfd`の仕組みを利用するがここでは一旦省略する。
 
@@ -375,9 +375,30 @@ int kvm_pic_set_irq(struct kvm_pic *s, int irq, int irq_source_id, int level)
 }
 ```
 
-`pic_set_irq1`関数でIRQ Levelの設定を行い、`pic_update_irq`関数で`kvm->arch.vpic`に格納されている`kvm_pic`構造体の中を以下のように書き換えている。  
+`pic_set_irq1`関数でIRQ Levelの設定を行い、`pic_update_irq`関数で`pic_irq_request`関数を呼び出し、`kvm->arch.vpic`に格納されている`kvm_pic`構造体の中を以下のように書き換えている。  
 
 ```C
+/*
+ * raise irq to CPU if necessary. must be called every time the active
+ * irq may change
+ */
+static void pic_update_irq(struct kvm_pic *s)
+{
+	int irq2, irq;
+
+	irq2 = pic_get_irq(&s->pics[1]);
+	if (irq2 >= 0) {
+		/*
+		 * if irq request by slave pic, signal master PIC
+		 */
+		pic_set_irq1(&s->pics[0], 2, 1);
+		pic_set_irq1(&s->pics[0], 2, 0);
+	}
+	irq = pic_get_irq(&s->pics[0]);
+	pic_irq_request(s->kvm, irq >= 0);
+}
+
+
 /*
  * callback when PIC0 irq status changed
  */

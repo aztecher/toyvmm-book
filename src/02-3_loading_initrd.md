@@ -82,7 +82,6 @@ vCPUのレジスタ設定関係については[Setup registers of vCPU](./02-4_s
 ## Setup E820
 
 Guest OSのE820のセットアップを行うことで、OSやBootLoaderに対して利用可能なメモリ領域の報告できるようにしたい。
-kernel headerの[]に[]があるので、この値をToyVMM側で設定する。
 この辺りの処理は基本的にFirecrackerの実装に合わせて実装している。  
 
 ```rust

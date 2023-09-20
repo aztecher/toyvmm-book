@@ -32,6 +32,7 @@ ELFファイルはシステムローダが利用する場合は`Program Header T
 
 上記で抜粋した内容から、`Program Header`や`Section Header`の各エントリの情報を取り出すことが可能であると分かるであろう。
 
+
 ここで、`Program Header`の内容を一部抜粋する。
 
 | Attribute     | Meaning                                                                                                     |
