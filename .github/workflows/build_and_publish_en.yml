@@ -20,7 +20,9 @@ jobs:
     - name: Deploy documents
       uses: peaceiris/actions-gh-pages@v3
       with:
-        deploy_key: ${{ secrets.ACTIONS_KEY_TOYVMM_BOOK_EN }}
-        external_repository: aztecher/toyvmm-book.en.github.io
-        PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./en/book
+        deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        external_repository: aztecher/aztecher.github.io
+        publish_branch: main
+        publish_dir: ./en/book
+        destination_dir: en
+
