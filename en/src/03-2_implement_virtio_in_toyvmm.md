@@ -9,7 +9,7 @@ In this section, we will delve into the implementation of Virtio in ToyVMM. Ther
 As mentioned in the [previous section](./03-1_virtio.md), ToyVMM initially utilizes MMIO as the transport method for Virtio. Before diving into the detailed explanation, let's start by illustrating an overview of the Virtio implementation in this context.
 
 <div align="center">
-<img src="../03_figs/virtio_implementation.svg" width="100%">
+<img src="./03_figs/virtio_implementation.svg" width="100%">
 </div>
 
 By referring to this diagram as needed, we can better understand the explanations and code that follow.
@@ -19,7 +19,7 @@ By referring to this diagram as needed, we can better understand the explanation
 In the implementation, the VirtioDevice itself is implemented as an abstract concept (`Trait`), and concrete devices like `Net` and `Block` are created to fulfill this trait. Similarly, since there are options for transport methods like `PCI` and `MMIO` (with MMIO being used here), we treat transport as an abstract concept and implement it according to the specific implementation, which in this case is `MMIO`.
 
 <div align="center">
-<img src="../03_figs/virtio_related_structs.svg" width="50%">
+<img src="./03_figs/virtio_related_structs.svg" width="50%">
 </div>
 
 Finally, we need to implement Virtqueues. While the number and usage of Virtqueues can vary depending on the implemented Virtio device, the structure of the Virtqueue remains consistent. We'll provide more details on this later.
@@ -35,7 +35,7 @@ Before delving into the implementation of Virtqueue, let's gain a more detailed 
 * `Used Ring` : Structure that manages `Descriptor` that stores information that the Host wants to notify to the Guest.
 
 <div align="center">
-<img src="../03_figs/virtqueue.svg" width="80%">
+<img src="./03_figs/virtqueue.svg" width="80%">
 </div>
 
 
@@ -129,7 +129,7 @@ However, unlike the `Available Ring` the elements of the `ring` are accompanied 
 The following diagram summarizes what has been explained so far.
 
 <div align="center">
-<img src="../03_figs/virtqueue_desc_avail_used_flow.svg" width=100%>
+<img src="./03_figs/virtqueue_desc_avail_used_flow.svg" width=100%>
 </div>
 
 This concludes the necessary knowledge for implementing Virtqueue.
@@ -309,13 +309,13 @@ In essence, notifications between the guest and host are achieved using the mech
 First, for notifications from the guest to the host, we use `ioeventfd`. `ioeventfd` transforms memory writes caused by PIO/MMIO operations in the guest VM into eventfd notifications. The `KVM_IOEVENTFD` is used as part of the KVM API, where you provide the eventfd for notifications and the address for MMIO. Writes to this MMIO address are converted into notifications to the specified eventfd. As a result, software on the host side (in this case, ToyVMM) can receive notifications from the guest via eventfd. This mechanism enhances event notification efficiency, making it a more lightweight implementation compared to traditional polling or interrupt handler-based methods.
 
 <div align="center">
-<img src="../03_figs/ioeventfd.svg" width="50%">
+<img src="./03_figs/ioeventfd.svg" width="50%">
 </div>
 
 Next, for notifications from the host to the guest, we use the `irqfd` mechanism. Although we've used `irqfd` in previous implementations, we employ `KVM_IRQFD` here. By passing the eventfd to be used for notifications and the IRQ number corresponding to the desired guest IRQ when using `KVM_IRQFD`, writes to the eventfd on the ToyVMM side are converted into hardware interrupts for the specified guest IRQ.
 
 <div align="center">
-<img src="../03_figs/ioeventfd.svg" width="50%">
+<img src="./03_figs/ioeventfd.svg" width="50%">
 </div>
 
 Using the notification features based on the KVM API mentioned above, we achieve communication between the guest and host. Specific usage details will be discussed in the following section, "Implementation of MMIO Transport."
@@ -350,7 +350,7 @@ Additionally, since IRQ information is provided to the guest via the command lin
 The figure below summarizes the above discussion, and ToyVMM implements this scheme:
 
 <div align="center">
-<img src="../03_figs/mmio_transport.svg" width="80%">
+<img src="./03_figs/mmio_transport.svg" width="80%">
 </div>
 
 ### MMIO Transport - Implementation Corresponding to MMIO Device Register Layout

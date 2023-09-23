@@ -24,7 +24,7 @@ Virtio mainly consists of the following components:
 * Virtio driver: The guest-side driver for Virtio-based devices.
 * Virtio device: The host-side emulation of devices.
 
-![Virtio Overview](../03_figs/virtio-overview.svg)
+![Virtio Overview](./03_figs/virtio-overview.svg)
 
 As depicted in the diagram, I/O requests initiated by the guest pass through Virtqueue to the host and responses are also mediated through Virtqueue back to the guest. Detailed behaviors and implementations will be discussed in the next section.
 

@@ -165,7 +165,7 @@ This size conveniently fits into a single page (4KB).
 
 The structure of each level's entity is as follows:
 
-<img src="../02_figs/cr3_and_paging.svg" width="100%">
+<img src="./02_figs/cr3_and_paging.svg" width="100%">
 
 > Source: [x86 Initial Boot Sequence](https://alessandropellegrini.it/didattica/2017/aosv/1.Initial-Boot-Sequence.pdf) and [OSdev/Paging](https://wiki.osdev.org/Paging)
 
@@ -220,7 +220,7 @@ Therefore, by treating `0x0100_0000` as a virtual address and using the conversi
 
 Let's calculate it explicitly. When converting a 64-bit virtual address with 4-Level Page Table, you split the lower 48 bits of the virtual address into groups of `9 + 9 + 9 + 9 + 12` bits each. These four groups of 9 bits are used as the index values for each Page table entry. You look up the layout of the identified entry in this way, then check the physical address of the next Page Table, and similarly determine the entry to be used in the next Page Table based on the physical address and virtual address. Continuing this process will eventually yield the desired physical address. Since Pages are at least 4KB in size, the address value is also in multiples of 4KB, so the final 12 bits of the virtual address serve as the offset (`2^12 = 4KB`).
 
-<img src="../02_figs/4-level-page-table_and_address_translation.svg" width="100%">
+<img src="./02_figs/4-level-page-table_and_address_translation.svg" width="100%">
 
 Let's remember that in this case, we have set the flag in PDE to treat it as a 2MB page frame. In this scenario, the result obtained from PDE is used directly as the physical address mapping. The 9 bits that are not used for PTE are treated as an offset, adding up to a total offset of 21 bits when combined with the original 12 bits. This 21-bit offset corresponds to the 2MB size. Similarly, when you set the flag in PDPTE, it is treated as a 1GB page frame.
 
@@ -239,7 +239,7 @@ From this breakdown, you can see that the index values for `PML4E` and `PDPTE` a
 Now, the PDE's index value is `0b0_0000_1000` from the virtual memory address above, so you will check the 8th entry in `PDT`. The value stored in this entry for the 2MB Page frame area is `0b0...0000_1000`. Therefore, when you add the 21-bit offset to this value, you get `0b1_0000_0000_0000_0000_0000_0000 = 0x100_0000` as the resulting physical address after conversion. This matches the input virtual address.
 Hence, even after the conversion, the kernel's entry point will still be pointed to, and the kernel will begin execution in 64-bit long mode.
 
-<img src="../02_figs/virt_phys_address_translation_example.svg" width="100%">
+<img src="./02_figs/virt_phys_address_translation_example.svg" width="100%">
 
 It's worth noting that this Page Table, as designed in this implementation, effectively enables Identity Mapping in the range of `2^21 ~ 2^30-1`.
 

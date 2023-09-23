@@ -6,7 +6,7 @@ At the time of writing this document, the kernel used to boot a VM in ToyVMM ass
 
 The ELF file format consists of the following components:
 
-<img src="../02_figs/elf_format.svg" width="100%">
+<img src="./02_figs/elf_format.svg" width="100%">
 
 As shown above, the ELF file format primarily consists of an `ELF Header`, `Program Header Table`, `Segments (Sections)`, and `Section Header Table`. When used by a system loader, ELF files treat the entries in the `Program Header Table` as a collection of `Segments`, while compilers, assemblers, and linkers treat entries in the `Section Header Table` as a collection of `Sections`.
 
