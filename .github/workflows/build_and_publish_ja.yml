@@ -5,6 +5,12 @@ on:
     - main
     paths:
     - "ja/**"
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Checkout ref'
+        required: true
+        default: 'main'
 
 jobs:
   deploy:

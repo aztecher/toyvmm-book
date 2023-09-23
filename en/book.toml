@@ -3,7 +3,7 @@ authors = ["aztecher"]
 language = "en"
 multilingual = false
 src = "src/"
-title = "toyvmm book"
+title = "toyvmm book (en)"
 
 [output.html]
 git-repository-url = "https://github.com/aztecher/toyvmm"
