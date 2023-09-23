@@ -51,7 +51,7 @@ In practice, this is created as **three entries** in the `Descriptor Table`, wit
 - The third `Descriptor` entry points to the address where the `status` will be written by Host.
 
 <div align="center">
-<img src="../03_figs/virtio-blk_virtqueue.svg", width="50%">
+<img src="./03_figs/virtio-blk_virtqueue.svg", width="50%">
 </div>
 
 The `type` field indicates the type of I/O (e.g., `read`, `write`, or other I/O requests). By examining this value, the host can determine how to behave differently.
@@ -85,13 +85,13 @@ In the `process_queue` function, the following steps are performed:
 The following diagrams illustrate the process when the guest-originated I/O request is a Read:
 
 <div align="center">
-<img src="../03_figs/blk-device_read.svg", width="100%">
+<img src="./03_figs/blk-device_read.svg", width="100%">
 </div>
 
 And here's the process when the guest-originated I/O request is a Write:
 
 <div align="center">
-<img src="../03_figs/blk-device_write.svg", width="100%">
+<img src="./03_figs/blk-device_write.svg", width="100%">
 </div>
 
 ### Verification of virtio-blk Operation

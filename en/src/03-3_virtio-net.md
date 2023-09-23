@@ -18,7 +18,7 @@ We will break down and explain the initialization phase and the post-initializat
 The following diagram primarily focuses on the initialization process of the Network Device:
 
 <div align="center">
-<img src="../03_figs/net-device_init_activate.svg", width="80%">
+<img src="./03_figs/net-device_init_activate.svg", width="80%">
 </div>
 
 The `Net` struct implements the `VirtioDevice` Trait and is associated with the `MmioTransport`. As mentioned earlier, device-specific operations during MMIO Transport initialization depend on the implementation of this `Net` struct.
@@ -41,7 +41,7 @@ Once the initialization steps are completed and the status is updated to a speci
 Next, we will provide a detailed diagram of the Network Device in its activated state:
 
 <div align="center">
-<img src="../03_figs/net-device_activated.svg", width="100%">
+<img src="./03_figs/net-device_activated.svg", width="100%">
 </div>
 
 When one of the registered file descriptors in `epoll` triggers an event, it dispatches the `NetEpollHandler` for event processing. `NetEpollHandler` varies its actions based on the event triggered. In any case, within the `NetEpollHandler`, it references the Virtqueue and performs I/O emulation.
@@ -70,7 +70,7 @@ Specifically, in the guest, the following steps are expected:
 Now, let's shift our focus to the host side, which is handled by ToyVMM. The EventFd triggered by the write to MMIO's `QueueNotify` is picked up by epoll monitoring. It triggers the NetEpollHandle's handler processing, specifically, the execution of the `TX_QUEUE_EVENT` corresponding operation.
 
 <div align="center">
-<img src="../03_figs/net-device_tx_1.svg", width="100%">
+<img src="./03_figs/net-device_tx_1.svg", width="100%">
 </div>
 
 The implementation calls the `process_tx` function.  
@@ -88,7 +88,7 @@ In `process_tx`, the processing proceeds as follows:
 7. Writing to the `eventfd` associated with the irq to trigger an interrupt and delegate processing to the guest.
 
 <div align="center">
-<img src="../03_figs/net-device_tx_2.svg", width="100%">
+<img src="./03_figs/net-device_tx_2.svg", width="100%">
 </div>
 
 On the guest side, the following steps are expected:
@@ -127,7 +127,7 @@ Returning to the guest, the following steps are expected:
 On the host side, when Rx Virtqueue notification is received from the guest, it interprets this as the **Rx data space is ready for address access.** 
 
 <div align="center">
-<img src="../03_figs/net-device_rx_1.svg", width="100%">
+<img src="./03_figs/net-device_rx_1.svg", width="100%">
 </div>
 
 Suppose the Tap device receives a packet at this point. By detecting the trigger of the Tap's file descriptor, the `NetEpollHandler` is dispatched, and it performs event processing for `RX_TAP_EVENT`. This processing mainly involves calling the `process_rx` function. However, there are certain conditions under which this may not happen, which we will discuss later.
@@ -144,13 +144,13 @@ Suppose the Tap device receives a packet at this point. By detecting the trigger
 The following diagram illustrates the process of writing the received data into the Descriptor chain using the Available Ring:
 
 <div align="center">
-<img src="../03_figs/net-device_rx_2.svg", width="100%">
+<img src="./03_figs/net-device_rx_2.svg", width="100%">
 </div>
 
 Once the data from the Tap device has been written, the `Used Ring` is updated, and an interrupt is sent to the guest.
 
 <div align="center">
-<img src="../03_figs/net-device_rx_3.svg", width="100%">
+<img src="./03_figs/net-device_rx_3.svg", width="100%">
 </div>
 
 On the guest side, the guest checks the `Used Ring` index, references the Descriptor pointed to by new entries, retrieves and processes Rx data, and performs any necessary operations. It then updates the Available Ring, signaling to the host that it is ready to accept new data.

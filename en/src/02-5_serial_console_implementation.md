@@ -12,7 +12,7 @@ The challenge lies on the side that receives this, the serial terminal. Since th
 
 In summary, we need to create something like the conceptual diagram below:
 
-<img src="../02_figs/overview_serial_device.svg" width="100%">
+<img src="./02_figs/overview_serial_device.svg" width="100%">
 
 We will explain this in detail in the following sections.
 
@@ -25,7 +25,7 @@ For detailed information about Serial UART, you can refer to the following resou
 
 The following figures are based on Lammet's document, with a brief explanation of each bit of each register. Although this diagram was created by me personally in writing this document, it is attached in the hope that it will help readers understand the meaning of each register and bit. However, the meaning of each register and bit is not explained in this document, so please refer to the above document for confirmation:
 
-<img src="../02_figs/serial_uart_registers.svg" width="100%">
+<img src="./02_figs/serial_uart_registers.svg" width="100%">
 
 Basically, UART operations are performed by manipulating the registers and bits shown above. In our case, we need to emulate this in software, and we plan to do this using [rust-vmm/vm-superio](https://github.com/rust-vmm/vm-superio). In the following sections, we'll briefly compare the implementation of [rust-vmm/vm-superio](https://github.com/rust-vmm/vm-superio) with the above specifications.
 
@@ -295,7 +295,7 @@ The `inject` field is also initialized within the `kvm_irqfd_assign` function, r
 
 The `kvm_set_irq` function lists entries with the incoming IRQ number and calls their `set` callbacks. This means that functions like `kvm_set_pic_irq` and `kvm_set_ioapic_irq`, as described earlier, will be called based on the routing information.
 
-<img src="../02_figs/kvm_irq_gsi_routing.svg" width="100%">
+<img src="./02_figs/kvm_irq_gsi_routing.svg" width="100%">
 
 The following explanation will go into a little more depth on interrupt processing, but since they are not necessary for understanding ToyVMM, you may skip to [ToyVMM serial console](#toyvmm-serial-console).
 
