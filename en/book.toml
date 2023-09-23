@@ -2,7 +2,7 @@
 authors = ["aztecher"]
 language = "en"
 multilingual = true
-src = "src"
+src = "src/"
 title = "toyvmm book"
 
 [output.html]

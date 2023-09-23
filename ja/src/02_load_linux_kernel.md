@@ -1,7 +1,5 @@
 # Load Linux Kernel
 
-**chapter2 is currently available only in Japanese, but will soon be translated into English ;)**
-
 このセクションではVMMのファーストステップとしてGuest VMを起動するための実装について触れることとする。  
 VMMとしては必要最低限の機能である一方、Linux Kernelの起動にあたってさまざまな知識を要求される内容でもある。  
 

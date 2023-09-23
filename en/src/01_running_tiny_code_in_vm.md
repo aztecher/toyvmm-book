@@ -1,6 +1,10 @@
 # 01. Running Tiny Code in VM
 
-Tiny code execution is now based on [QuickStart](./quickstart.md) content, so please check it first.  
+Tiny code execution is no longer supported in the current latest commit.
+
+You may be able to verify it by checking out past commits, but please be aware that resolving package dependencies may be challenging.
+
+This chapter is documented in a way that you can get a sense of its behavior without actually running it, so please feel reassured about that.
 
 ### DeepDive ToyVMM instruction and how to run tiny code in VM
 

@@ -2,4 +2,4 @@
 
 # ToyVMM book
 
-This repository manages the [book](https://aztecher.github.io/) for [toyvmm](https://github.com/aztecher/toyvmm)
+This repository manages the book([ja](https://github.com/aztecher/toyvmm-book.ja.github.io), [en](https://github.com/aztecher/toyvmm-book.en.github.io)) for [toyvmm](https://github.com/aztecher/toyvmm)

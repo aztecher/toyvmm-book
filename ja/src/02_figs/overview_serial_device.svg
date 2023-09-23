@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with EazyDraw for Mac ( http://www.eazydraw.com/ ) -->
+
+<svg
+    version="1.1"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:cc="http://creativecommons.org/ns#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:svg="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns="http://www.w3.org/2000/svg"
+    width="476.405628725"
+    height="132.793259428"
+    viewBox="0, 0, 476.405628725, 132.793259428"
+    preserveAspectRatio="none"
+    id="svg2">
+   <defs
+       id="defs_507FC418">
+      <marker
+          orient="auto"
+          refX="0.0"
+          refY="0.0"
+          id="D5953137_end_arrow"
+          style="overflow:visible"
+          markerUnits="userSpaceOnUse">
+         <path
+             id="D5953137_end_arrow_path"
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;fill-rule:nonzero;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.25;stroke-miterlimit:10"
+             d="M0,0 L-7.517540966287,2.736161146605 L-7.517540966287,-2.736161146605 z"/>
+      </marker>
+      <marker
+          orient="auto"
+          refX="0.0"
+          refY="0.0"
+          id="77C1B237_start_arrow"
+          style="overflow:visible"
+          markerUnits="userSpaceOnUse">
+         <path
+             id="77C1B237_start_arrow_path"
+             style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;fill-rule:nonzero;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.25;stroke-miterlimit:10"
+             d="M0,0 L7.517540966287,-2.736161146605 L7.517540966287,2.736161146605 z"/>
+      </marker>
+   </defs>
+   <metadata
+       id="metadata7">
+      <rdf:RDF>
+         <cc:Work
+             rdf:about="">
+            <dc:format>image/svg+xml</dc:format>
+            <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+            <dc:title></dc:title>
+         </cc:Work>
+      </rdf:RDF>
+   </metadata>
+   <g
+       id="layer_Paper"
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-opacity:1;fill-rule:nonzero;stroke-linecap:square;stroke-linejoin:miter;stroke-width:1;stroke-miterlimit:10">
+      <rect
+          style="fill:none;stroke:none"
+          id="6802B989"
+          x="0"
+          y="0"
+          width="476.405628725"
+          height="132.793259428"/>
+      <rect
+          style="fill:none"
+          id="17EF4C17"
+          x="330.653666368"
+          y="29.1075675764"
+          width="76.4294563361"
+          height="57.5251310445"/>
+      <text
+          id="7C70F327"
+          style="stroke:none"
+          font-family="Avenir"
+          font-size="8"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="359.904485865" y="59.8365947268">Guest VM</tspan>
+      </text>
+      <rect
+          style="fill:none"
+          id="A1E91627"
+          x="189.183844237"
+          y="29.2916726448"
+          width="57.7736756639"
+          height="57.5251310445"/>
+      <text
+          id="55A64627"
+          style="stroke:none"
+          font-family="Avenir"
+          font-size="8"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="195.117122969" y="54.6217448821">Serial Device</tspan>
+         <tspan x="188.165122969" y="64.6217448821" font-family="Hiragino Sans">（vm-superio）</tspan>
+      </text>
+      <polyline
+          style="fill:none"
+          id="55265C08"
+          points="308.041131668,104.631505951 308.041131668,121.187239596 49.3195118506,121.187239596 49.3195118498,17.4139000394 260.726656388,17.4139000395"/>
+      <polyline
+          style="fill:none"
+          id="0A7B1C08"
+          points="308.041131668,36.4959611856 308.041131668,80.6798936405"/>
+      <text
+          id="4482E827"
+          style="stroke:none"
+          font-family="Avenir"
+          font-size="8"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="166.928359825" y="111.832161119">ToyVMM</tspan>
+      </text>
+      <g
+          id="E80C53E7">
+         <rect
+             style="fill:none"
+             id="ED571B27"
+             x="72.3481341684"
+             y="60.9785053441"
+             width="63.4795134075"
+             height="17.4713198918"/>
+         <text
+             id="26ED7B27"
+             style="stroke:none"
+             font-family="Avenir"
+             font-size="8"
+             font-weight="normal"
+             font-style="normal">
+            <tspan x="94.1979215834" y="72.3641933705">stdin</tspan>
+         </text>
+      </g>
+      <g
+          id="30B433E7">
+         <rect
+             style="fill:none"
+             id="077A4C27"
+             x="72.3481341684"
+             y="37.3744721814"
+             width="63.4795134075"
+             height="17.4713198918"/>
+         <text
+             id="177A4C27"
+             style="stroke:none"
+             font-family="Avenir"
+             font-size="8"
+             font-weight="normal"
+             font-style="normal">
+            <tspan x="92.7760001945" y="48.2922371414">stdout</tspan>
+         </text>
+      </g>
+      <line
+          style="fill:none;marker-end:url(#D5953137_end_arrow)"
+          id="D5953137"
+          x1="330.565324625"
+          y1="46.8029023293"
+          x2="247.286960855"
+          y2="46.8029023293"/>
+      <line
+          style="fill:none;marker-end:url(#D5953137_end_arrow)"
+          id="D6E4C137"
+          x1="188.560462892"
+          y1="46.8029023293"
+          x2="136.545476989"
+          y2="46.8029023293"/>
+      <line
+          style="fill:none;marker-start:url(#77C1B237_start_arrow)"
+          id="77C1B237"
+          x1="330.565324625"
+          y1="69.3040456815"
+          x2="247.718414309"
+          y2="69.3040456815"/>
+      <line
+          style="fill:none;marker-start:url(#77C1B237_start_arrow)"
+          id="C0E74337"
+          x1="188.697935861"
+          y1="69.3040456813"
+          x2="136.91255329"
+          y2="69.3040456813"/>
+      <rect
+          style="fill:none"
+          id="440CD7E7"
+          x="330.806678537"
+          y="37.0642646972"
+          width="17.676736906"
+          height="41.7955287288"
+          rx="10"
+          ry="10"/>
+      <text
+          id="5D73C9E7"
+          style="stroke:none"
+          font-family="Avenir"
+          font-size="8"
+          font-weight="normal"
+          font-style="normal"
+          transform="matrix(0,1,-1,0,397.62224485,-278.497347298)">
+         <tspan x="327.997000744" y="60.0624487761">ttyS0</tspan>
+      </text>
+      <g
+          id="A7FED608">
+         <polygon
+             style="fill:none"
+             id="046E5CF7"
+             points="261.684886618,14.2503563271 325.093668787,14.2503563271 325.093668787,35.8315276998 295.790935179,35.8315276998 293.389277702,44.2649174803 290.987620226,35.8315276998 261.684886618,35.8315276998"/>
+         <text
+             id="E4706DF7"
+             style="stroke:none"
+             font-family="Avenir"
+             font-size="8"
+             font-weight="normal"
+             font-style="normal">
+            <tspan x="267.73521261" y="27.5861256031">KVM_EXIT_IO</tspan>
+         </text>
+      </g>
+      <text
+          id="9C810FF7"
+          style="stroke:none"
+          font-family="Avenir"
+          font-size="8"
+          font-weight="normal"
+          font-style="normal">
+         <tspan x="277.60038126" y="95.3018062486">Interrupt</tspan>
+      </text>
+      <polygon
+          style="fill:none"
+          id="6F938FF7"
+          points="266.681913161,81.3653571276 290.227794789,81.3653571276 293.183612377,71.5235444404 296.139429965,81.3653571276 319.685311593,81.3653571276 319.685311593,103.943296005 266.681913161,103.943296005"/>
+   </g>
+</svg>

@@ -4,24 +4,23 @@ on:
     branches:
     - main
     paths:
-    - "src/**"
-    - "book.toml"
+    - "en/**"
 
 jobs:
   deploy:
     runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v3
-    - name: Setup mdBook
+    - name: Setup mdbook en
       uses: peaceiris/actions-mdbook@v1
       with:
         mdbook-version: '0.4.10'
-    - name: Build mdBook
-      run: mdbook build
+    - name: Build mdbook en
+      run: mdbook build en
     - name: Deploy documents
       uses: peaceiris/actions-gh-pages@v3
       with:
         deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-        external_repository: aztecher/aztecher.github.io
+        external_repository: aztecher/toyvmm-book.en.github.io
         PUBLISH_BRANCH: main
-        PUBLISH_DIR: ./book
+        PUBLISH_DIR: ./en/book
