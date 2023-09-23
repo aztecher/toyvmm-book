@@ -1,0 +1,10 @@
+[book]
+authors = ["aztecher"]
+language = "en"
+multilingual = true
+src = "src/"
+title = "toyvmm book"
+
+[output.html]
+git-repository-url = "https://github.com/aztecher/toyvmm"
+no-section-label = true
