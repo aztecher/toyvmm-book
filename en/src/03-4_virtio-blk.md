@@ -14,7 +14,7 @@ In the following sections, we will explain the implementation details based on c
 
 The implementation of `virtio-blk` can be found in `block.rs`. The roles and relationships of various structures are shown in the following diagram:
 
-![Block Device Initialization](../03_figs/blk-device_activated.svg)
+![Block Device Initialization](./03_figs/blk-device_activated.svg)
 
 As mentioned earlier, the concrete implementation depends on the specific device. However, it is abstracted by the `VirtioDevice` trait, so everything else, apart from the details of various device implementations, works the same as shown for `virtio-net`. Therefore, this diagram mostly resembles the internal details of the Block Device, with minor differences.
 
