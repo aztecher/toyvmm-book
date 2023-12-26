@@ -15,3 +15,7 @@
   - [03-2. Implement virtio in ToyVMM](./03-2_implement_virtio_in_toyvmm.md)
   - [03-3. Implement virtio-net device](./03-3_virtio-net.md)
   - [03-4. Implement virtio-blk device](./03-4_virtio-blk.md)
+- [04. SMP and CPU specific configuration](./04_smp.md)
+  - [04-1. SMP - Symmetric MultuProcessing](./04-1_smp_symmetric_multiprocessing.md)
+  - [04-2. Intel CPU specific configuration](./04-2_Intel_CPU_specific_configuration.md)
+  - [04-3. AMD CPU specific configuration](./04-3_AMD_CPU_specific_configuration.md)
