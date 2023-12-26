@@ -17,5 +17,6 @@
   - [03-4. Implement virtio-blk device](./03-4_virtio-blk.md)
 - [04. SMP and CPU specific configuration](./04_smp.md)
   - [04-1. SMP - Symmetric MultuProcessing](./04-1_smp_symmetric_multiprocessing.md)
-  - [04-2. Intel CPU specific configuration](./04-2_Intel_CPU_specific_configuration.md)
-  - [04-3. AMD CPU specific configuration](./04-3_AMD_CPU_specific_configuration.md)
+  - [04-2. Common CPU configuration](./04-2_common_CPU_configuration.md)
+  - [04-3. Intel CPU specific configuration](./04-3_Intel_CPU_specific_configuration.md)
+  - [04-4. AMD CPU specific configuration](./04-4_AMD_CPU_specific_configuration.md)
